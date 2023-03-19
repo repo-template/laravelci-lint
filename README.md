@@ -50,15 +50,15 @@ parameters:
 $ ./vendor/bin/phpstan analyse --memory-limit=1G
 ```
 
-## [php-cs-fixer] Create `{my-project}/.php_cs.dist`
+## [php-cs-fixer] Create `{my-project}/.php-cs-fixer.dist.php`
 
 ```bash
-$ touch .php_cs.dist
+$ touch .php-cs-fixer.dist.php
 ```
 
 [php-cs-fixer rules][php-cs-fixer rules url]
 
-**Example `.php_cs.dist`**
+**Example `.php-cs-fixer.dist.php`**
 
 ```php
 <?php
@@ -82,7 +82,7 @@ return $config->setRules([
 ## Run `phpcs-fixer`
 
 ```bash
-$ ./vendor/bin/php-cs-fixer fix --config=php_cs.dist ./
+$ ./vendor/bin/php-cs-fixer fix --path-mode=intersection --config=.php-cs-fixer.dist.php --verbose --dry-run --allow-risky=yes ./
 ```
 
 [larastan rules url]: https://github.com/nunomaduro/larastan/blob/master/docs/rules.md
