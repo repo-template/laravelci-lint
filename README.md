@@ -44,6 +44,12 @@ parameters:
     checkUnusedViews: true
 ```
 
+## Run phpstan
+
+```bash
+$ ./vendor/bin/phpstan analyse --memory-limit=1G
+```
+
 ## [php-cs-fixer] Create `{my-project}/.php_cs.dist`
 
 ```bash
@@ -71,6 +77,12 @@ return $config->setRules([
     ])
     ->setFinder($finder)
 ;
+```
+
+## Run `phpcs-fixer`
+
+```bash
+$ ./vendor/bin/php-cs-fixer fix --config=php_cs.dist ./
 ```
 
 [larastan rules url]: https://github.com/nunomaduro/larastan/blob/master/docs/rules.md
