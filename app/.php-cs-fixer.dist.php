@@ -3,8 +3,10 @@
 $finder = PhpCsFixer\Finder::create()
     ->exclude(
         [
-            'database/migrations',
             'config',
+            'bootstrap/cache',
+            'database/migrations',
+            'storage',
         ]
     )
     ->in(__DIR__);
