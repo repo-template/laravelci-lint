@@ -1,5 +1,12 @@
 PROJECT_NAME := app
 
+.PHONY: new
+new: laravel-new init
+
+.PHONY: laravel-new
+laravel-new:
+	laravel new ${PROJECT_NAME}
+
 .PHONY: init
 init:
 	cd ${PROJECT_NAME} && \
