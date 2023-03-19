@@ -74,4 +74,4 @@ return $config->setRules([
 ```
 
 [larastan rules url]: https://github.com/nunomaduro/larastan/blob/master/docs/rules.md
-[php-cs-fixer rules url]: https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/blob/master/doc/config.rst
+[php-cs-fixer rules url]: https://mlocati.github.io/php-cs-fixer-configurator/#version:2.16
