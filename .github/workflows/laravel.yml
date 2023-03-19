@@ -26,7 +26,7 @@ jobs:
         working-directory: ./app
 
       - name: Install Dependencies
-        run: composer install
+        run: composer install --dev
         working-directory: ./app
 
       - name: Generate key
@@ -38,6 +38,7 @@ jobs:
           mkdir -p storage/app/public
           mkdir -p storage/framework/cache/data/
           mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/testing
           mkdir -p storage/framework/views
         working-directory: ./app
 
@@ -61,3 +62,6 @@ jobs:
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
         working-directory: ./app
+
+      - name: Lint with phpstan and php-cs-fixer
+        run: make lint
