@@ -33,10 +33,16 @@ jobs:
         run: php artisan key:generate
         working-directory: ./app
 
-      - name: Link storage
+      - name: Make storage directories
         run: |
-          php artisan storage:link
-          ls
+          mkdir -p storage/app/public
+          mkdir -p storage/framework/cache/data/
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+        working-directory: ./app
+
+      - name: Link storage
+        run: php artisan storage:link
         working-directory: ./app
 
       - name: Directory Permissions
