@@ -21,28 +21,31 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
 
-      - name: Change directory application path
-        run: cd app
-
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        working-directory: ./app
 
       - name: Install Dependencies
         run: composer install
+        working-directory: ./app
 
       - name: Generate key
         run: php artisan key:generate
+        working-directory: ./app
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
+        working-directory: ./app
 
       - name: Create Database
         run: |
           mkdir -p database
           touch database/database.sqlite
+        working-directory: ./app
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
+        working-directory: ./app
